@@ -1,0 +1,15 @@
+<div class="col-md-3">
+
+    <div>
+       <div class="nav flex-column nav-pills" aria-orientation="vertical">
+          <a href="{% url 'dashboard' %}" class="nav-link text-dark {% if '/dashboard/' == request.path %} bg-info {% endif %}">Dashboard</a>
+          <a href="{% url 'category' %}" class="nav-link text-dark {% if '/category/' in request.path %} bg-info  {% endif %}">Categories</a>
+          <a href="{% url 'posts' %}" class="nav-link text-dark {% if '/posts/' in request.path %} bg-info  {% endif %}">Posts</a>
+          {% if perms.auth.view_user %}
+          <a href="{% url 'users' %}" class="nav-link text-dark {% if '/users/' in request.path %} bg-info {% endif %}">Users</a>
+          {% endif %}
+          <a href="{% url 'logout' %}" class="nav-link text-dark">Logout</a>
+           
+       </div>
+    </div>
+   </div>
